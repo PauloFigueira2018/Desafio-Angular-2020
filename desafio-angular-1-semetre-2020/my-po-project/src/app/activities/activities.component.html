@@ -1,0 +1,51 @@
+<po-page-default [p-title]="title">
+  <div>
+    <h2>Tarefas Agendadas</h2>
+    <br>
+</div>  
+  <po-table
+    p-container="shadow"
+    p-hide-select-all="true"
+    p-hide-text-overflow
+    p-selectable
+    [p-columns]="columns"
+    [p-items]="data"
+    [p-show-more-disabled]="false"
+    [p-sort]="true"
+    (p-sort-by)="sort($event)"
+    (p-selected)="markOne($event)"
+    p-single-select = "true">
+  </po-table>
+  <br>
+  <div class="thf-row">
+    <po-button
+      class="thf-md-3"
+      p-label="Incluir Tarefa"
+      p-icon="po-icon po-icon-ok"
+      (p-click)="newForm()">
+    </po-button>
+
+    <po-button
+      class="thf-md-2"
+      p-label="Alterar Tarefa"
+      p-icon="po-icon po-icon-edit"
+      (p-click)="alterTask()">
+    </po-button>
+
+    <po-button
+      *ngIf="activity"
+      class="thf-md-4"
+      p-label="Finalizar Tarefa"
+      p-icon="po-icon po-icon-target"
+      (p-click)="finishTask()">
+    </po-button>
+
+    <po-button
+      class="thf-md-5"
+      p-label="Excluir Tarefa"
+      p-icon="po-icon po-icon-delete"
+      (p-click)="deleteTask()">
+    </po-button>
+  </div>
+</po-page-default>
+

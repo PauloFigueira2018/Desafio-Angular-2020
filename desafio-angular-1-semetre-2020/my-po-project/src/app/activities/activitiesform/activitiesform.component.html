@@ -1,0 +1,66 @@
+<po-page-default>
+    <form class= "form-horizontal" [formGroup]="formulario">
+    <div class="po-row">
+        <po-datepicker
+            class="po-md-4"
+            name="dataLim"
+            formControlName="dataLim"
+            p-placeholder="Data de inicio da atividade"
+            p-error-pattern="informe uma data válida"
+            p-label="Data Prevista para iniciar a Atividade"
+            p-required="true"
+            >
+        </po-datepicker>
+        <po-input
+            class="po-md-10"
+            name="titulo"
+            p-error-pattern="O título deve conter entre 5 e 20 caracteres"
+            p-no-autocomplete="true"
+            formControlName="titulo"
+            p-placeholder="Título da Atividade"
+            p-required="true"
+            p-label="Título da Atividade"
+            >
+        </po-input>
+        <po-combo
+            class="po-md-4"
+            name="tipo"
+            p-field-value="name"
+            formControlName="tipo"
+            p-placeholder="Tipo da Atividade"
+            p-label="Tipo"
+            p-required="true"
+            [p-options]="[{ value: 'Casa' }, { value: 'Estudo' },{ value: 'Trabalho' }]"
+            >
+        </po-combo>
+        <po-textarea
+            class="po-md-12"
+            name="descricao"
+            formControlName="descricao"
+            p-placeholder="Descrição da atividade"
+            p-required="true"
+            p-label="Descrição"
+            >
+        </po-textarea>
+    </div>
+    <div class="po-row">
+        <div class="po-modal-footer">
+            <po-button
+                p-label="Fechar"
+                p-icon="po-icon po-icon-exit"
+                (p-click)="closeTask()"
+                >
+                </po-button>
+            <po-button
+                p-type ="primary"
+                p-icon="po-icon po-icon-ok"
+                p-label="Salvar"
+                [p-disabled]="this.formulario.invalid"
+                (p-click)="saveTask()"
+                >
+            </po-button>
+         </div>
+    </div>
+    <!--<app-form-debug [form]="formulario"></app-form-debug>-->
+    </form>
+</po-page-default>
